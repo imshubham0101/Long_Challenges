@@ -24,5 +24,6 @@ int main(){
      //another line
      //another line2
 
+     cout <<finalDays;
 
 }
