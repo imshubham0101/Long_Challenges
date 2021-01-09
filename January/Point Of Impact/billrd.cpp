@@ -25,6 +25,7 @@ void anti_bottom_to_right(li n,li*k,li*x,li*y){      //3
     *x = n;
     *y = *y +(n-t);
     --(*k);
+    //x= 2 ,y=1 expected x= 5, y= 4 x+n-y 
 }
 
 void clock_right_to_bottom(li n,li*k,li*x,li*y){       //4
@@ -47,7 +48,7 @@ int main()
     while(t--){
          li n,k,x,y;
         cin >> n >> k >> x >> y ;
-        if ( n < 2) return 0 ;
+        if ( n < 2) continue  ;
 
         if(x == y){
             cout << n << ' '<< n << endl ;
@@ -63,7 +64,7 @@ int main()
                 if(k!=0) swap(&k,&x,&y);
                
            }
-           cout<< x << " " << y <<endl;
+           cout<< x <<" "<< y <<endl;
         }
         //clock-Wise
         else{   
@@ -75,7 +76,7 @@ int main()
                 if(k!=0) left_to_top(n,&k,&x,&y);
 
             }
-           cout<< x << " " << y <<endl;
+           cout<< x <<" "<< y <<endl;
         }
     }
    
