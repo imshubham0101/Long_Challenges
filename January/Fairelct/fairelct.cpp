@@ -1,19 +1,19 @@
 #include <iostream>
-#include <queue>
+#include <bits/stdc++.h>
 
 using namespace std;
 
 int main()
 {
-//hello world
+    
     int t;
     cin >> t;
-     while (t--)
+    while (t--)
     {
         int n, m;
         cin >> n >> m;
-        unsigned int A[n];
-        unsigned int B[m];
+        long int A[n]; //john  array
+        long int B[m]; //jack  array
         unsigned int sumOfJohn = 0;
         unsigned int sumOfJack = 0;
         for (int i = 0; i < n; i++)
@@ -30,56 +30,39 @@ int main()
         if (sumOfJohn > sumOfJack)
         {
             cout << 0 << endl;
-        
         }
         else
         {
-            priority_queue<int> max_heap;
-            priority_queue<int, vector<int>, greater<int>> min_heap;
 
-            for (int x : B)
+            sort(A, A + n);                 //ascending
+            sort(B, B + m, greater<int>()); //decending
+            int john_count = 0;
+            int jack_count = 0;
+            int count = 0;
+            while (john_count < n && jack_count < n && (sumOfJohn <= sumOfJack))
             {
-                max_heap.push(x);
-            }
+                int mintop = A[john_count];
+                int maxtop = B[jack_count];
 
-            for (int x : A)
-            {
-                min_heap.push(x);
-            }
-            
-            /* while (!max_heap.empty())
-            {
-                cout << '\t' << max_heap.top();
-                max_heap.pop();
-            }
-
-            while (!min_heap.empty())
-            {
-                cout << '\t' << min_heap.top();
-                min_heap.pop();
-            } */
-            int count = 0 ;
-            while(!(sumOfJohn > sumOfJack ) ){
-                int mintop = min_heap.top();
-                min_heap.pop() ;
-                int maxtop = max_heap.top();
-                max_heap.pop();
-                if(mintop > maxtop){
-                cout<<-1 <<endl;
-                    return 0 ;
+                if (mintop > maxtop)
+                {
+                    cout << -1 << endl;
+                    return 0;
                 }
-                sumOfJohn = sumOfJohn - mintop + maxtop ;
-                sumOfJack = sumOfJack - maxtop + mintop ; 
-                count++ ;
+
+                sumOfJohn = sumOfJohn - mintop + maxtop;
+                sumOfJack = sumOfJack - maxtop + mintop;
+                john_count++;
+                jack_count++;
+                count++;
             }
-            if (count >= 0 )
-            cout << count <<endl ;
-            else 
-            cout << -1 <<endl ;
 
+            if (sumOfJohn > sumOfJack)
+                cout << count << endl;
+            else
+                cout << -1 << endl;
         }
-
     }
-    
-        return 0;
+
+    return 0;
 }
