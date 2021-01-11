@@ -14,8 +14,8 @@ int main()
         cin >> n >> m;
         long int A[n]; //john  array
         long int B[m]; //jack  array
-        unsigned int sumOfJohn = 0;
-        unsigned int sumOfJack = 0;
+        long int sumOfJohn = 0;
+        long int sumOfJack = 0;
         for (int i = 0; i < n; i++)
         {
             cin >> A[i];
@@ -39,15 +39,15 @@ int main()
             int john_count = 0;
             int jack_count = 0;
             int count = 0;
-            while (john_count < n && jack_count < n && (sumOfJohn <= sumOfJack))
+            while (john_count < n && jack_count < m && (sumOfJohn <= sumOfJack))
             {
                 int mintop = A[john_count];
                 int maxtop = B[jack_count];
 
                 if (mintop > maxtop)
                 {
-                    cout << -1 << endl;
-                    return 0;
+                   // cout << -1 << endl;
+                    break;
                 }
 
                 sumOfJohn = sumOfJohn - mintop + maxtop;
