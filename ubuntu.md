@@ -17,3 +17,10 @@ helllo from ubuntu 18.04
 binary search on strings
 
 //
+
+//feb/lc/03/team meet 
+12.00 AM -> 00.00 | 12.00 PM -> 12.00  | 1.00 -> 12+1 -> 13 | 11.00 pm -> 11+12 -> 23 |   
+12:01 AM 11:59 AM			if(chef.hr )
+12:30 AM 12:00 PM			00.00 to 23.59 -> if(chef.hr >= friendStarting.hr && chef.hr <= friendEnding.hr)
+11:59 AM 11:59 PM									if(chef.min >= friendStarting.min 
+04:12 PM
